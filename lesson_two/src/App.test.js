@@ -32,6 +32,22 @@ test('renders counter display', () => {
   expect(counterComponent.length).toBe(1);
 });
 
-test('counter display starts at 0', () => {});
+test('counter display starts at 0', () => {
+  const shallowWrapper = setup();
 
-test('click button increament the counter', () => {});
+  const countComponent = findByTestAttr(shallowWrapper, 'counter-count');
+
+  expect(countComponent.text()).toBe('0');
+});
+
+test('click button increament the counter', () => {
+  const shallowWrapper = setup();
+
+  const buttonComponent = findByTestAttr(shallowWrapper, 'increment-button');
+
+  buttonComponent.simulate('click');
+
+  const countComponent = findByTestAttr(shallowWrapper, 'counter-count');
+
+  expect(countComponent.text()).toBe('1');
+});
