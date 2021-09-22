@@ -1,8 +1,12 @@
-import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+import Enzyme, { shallow } from 'enzyme';
+import EnzymeAdapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+Enzyme.configure({ adapter: new EnzymeAdapter() });
+
+test('render without crashing', () => {
+  const shallowWrapper = shallow(<App />);
+
+  console.log(shallowWrapper.debug());
 });
