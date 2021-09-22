@@ -5,8 +5,12 @@ import EnzymeAdapter from '@wojtekmaj/enzyme-adapter-react-17';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-test('render without crashing', () => {
+test('render non-empty without crashing', () => {
   const shallowWrapper = shallow(<App />);
 
-  console.log(shallowWrapper.debug());
+  /*
+   * console.log(shallowWrapper.debug());
+   */
+
+  expect(shallowWrapper.exists()).toBe(true);
 });
