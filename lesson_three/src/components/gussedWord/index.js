@@ -12,16 +12,16 @@ const GuessedWord = ({ guessedWords }) => {
   } else {
     const guessWordRows = guessedWords.map((word, index) => (
       <tr key={index} data-test="guessed-word">
-        <td>word.guessedWord</td>
-        <td>word.letterMatchCount</td>
+        <td>{word.guessedWord}</td>
+        <td>{word.letterMatchCount}</td>
       </tr>
     ));
 
     contents = (
       <div data-test="guessed-words">
         <h3>Guessed Word</h3>
-        <table>
-          <thead>
+        <table className="table table-bordered">
+          <thead className="thead-light">
             <tr>
               <th>Guess</th>
               <th>Matching Letters</th>
