@@ -1,7 +1,9 @@
 const Congrats = ({ success }) => {
   return (
-    <div>
-      <div></div>
+    <div data-test="component-congrats">
+      {success ? (
+        <span data-test="congrats-message">Congrats ! Successfull</span>
+      ) : null}
     </div>
   );
 };
