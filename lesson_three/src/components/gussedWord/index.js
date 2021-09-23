@@ -9,6 +9,28 @@ const GuessedWord = ({ guessedWords }) => {
         Try to guess the secrect word !
       </span>
     );
+  } else {
+    const guessWordRows = guessedWords.map((word, index) => (
+      <tr key={index} data-test="guessed-word">
+        <td>word.guessedWord</td>
+        <td>word.letterMatchCount</td>
+      </tr>
+    ));
+
+    contents = (
+      <div data-test="guessed-words">
+        <h3>Guessed Word</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Guess</th>
+              <th>Matching Letters</th>
+            </tr>
+          </thead>
+          <tbody>{guessWordRows}</tbody>
+        </table>
+      </div>
+    );
   }
 
   return <div data-test="component-guessedword">{contents}</div>;
