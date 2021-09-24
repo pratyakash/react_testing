@@ -1,13 +1,14 @@
 import Congrats from '../src/components/congrats';
-import GuessedWords from '../src/components/gussedWord';
+import GuessedWords from './components/gussedWords';
+import CustomInput from './components/input';
 
 function App() {
-  return (
-    <div className="container">
-      <h1>Jotto</h1>
-      <Congrats success={true} />
-      <GuessedWords
-        guessedWords={[
+  const success = false;
+  const secretWord = 'party';
+  const guessedWord = [];
+
+  /* 
+  [
           {
             guessedWord: 'train',
             letterMatchCount: 3,
@@ -20,8 +21,15 @@ function App() {
             guessedWord: 'agile',
             letterMatchCount: 2,
           },
-        ]}
-      />
+        ]
+  */
+
+  return (
+    <div className="container" data-test="component-app">
+      <h1>Jotto</h1>
+      <Congrats success={success} />
+      <CustomInput success={success} secretWord={secretWord} />
+      <GuessedWords guessedWords={guessedWord} />
     </div>
   );
 }
