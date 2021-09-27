@@ -1,11 +1,12 @@
 import { checkPropTypes } from 'prop-types';
+import { createStore, applyMiddleware } from 'redux';
 
-import { createStore } from 'redux';
+import { middlewares } from '../src/store'
 
 import rootReducer from '../src/reducers';
 
 export const storeFactory = initialState => {
-  return createStore(rootReducer, initialState);
+  return createStore(rootReducer, initialState, applyMiddleware(...middlewares));
 }
 
 export const findByTestAttr = (wrapper, val) =>

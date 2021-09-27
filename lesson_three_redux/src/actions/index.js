@@ -5,7 +5,8 @@ export const getSecretWord = () => {
 };
 
 export const actionTypes = {
-  CORRECT_GUESS: 'correct_guess'
+  CORRECT_GUESS: 'correct_guess',
+  GUESS_WORD: 'guess_word'
 };
 
 export const correctGuess = () => {
@@ -13,3 +14,9 @@ export const correctGuess = () => {
     type: actionTypes.CORRECT_GUESS,
   };
 };
+
+export const guessWord = (guessedWord) => {
+  return function (dispatch, getState) {
+
+  }
+}
