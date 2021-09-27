@@ -1,14 +1,19 @@
 import { mount } from 'enzyme';
+import { Provider } from 'react-redux';
 
 import App from './App';
 
-import { findByTestAttr, checkProps } from '../test/utils';
+import { findByTestAttr, checkProps, storeFactory } from '../test/utils';
 
 jest.mock('./actions');
 import { getSecretWord as mockGetSecretWord } from './actions';
 
 const setup = () => {
-  return mount(<App />);
+  const store = storeFactory({})
+  return mount(
+    <Provider store={store}>
+      <App />
+    </Provider>);
 };
 
 test('renders without error', () => {
