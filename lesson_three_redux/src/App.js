@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import Congrats from '../src/components/congrats';
 import GuessedWords from './components/gussedWords';
@@ -8,9 +9,10 @@ import { getSecretWord } from './actions';
 
 
 function App() {
-	const success = false;
+	const success = useSelector(state => state.success);
+	const guessedWords = useSelector(state => state.guessedWords);
+
 	const secretWord = 'party';
-	const guessedWord = [];
 
 	/* 
 	[
@@ -38,7 +40,7 @@ function App() {
 			<h1>Jotto</h1>
 			<Congrats success={success} />
 			<CustomInput success={success} secretWord={secretWord} />
-			<GuessedWords guessedWords={guessedWord} />
+			<GuessedWords guessedWords={guessedWords} />
 		</div>
 	);
 }
