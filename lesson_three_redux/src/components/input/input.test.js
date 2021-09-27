@@ -45,15 +45,15 @@ describe('render', () => {
       const inputComponent = findByTestAttr(wrapper, 'component-input');
       expect(inputComponent.length).toBe(1);
     });
-    // test('input box does not display', () => {
-    //   const inputBox = findByTestAttr(wrapper, 'input-box');
+    test('input box does not display', () => {
+      const inputBox = findByTestAttr(wrapper, 'input-box');
 
-    //   expect(inputBox.exists()).toBe(false);
-    // });
-    // test('submit button does not display', () => {
-    //   const submitButton = findByTestAttr(wrapper, 'submit-button');
-    //   expect(submitButton.exists()).toBe(false);
-    // });
+      expect(inputBox.exists()).toBe(false);
+    });
+    test('submit button does not display', () => {
+      const submitButton = findByTestAttr(wrapper, 'submit-button');
+      expect(submitButton.exists()).toBe(false);
+    });
   });
 });
 
